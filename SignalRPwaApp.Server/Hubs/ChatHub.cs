@@ -22,5 +22,12 @@ namespace SignalRPwaApp.Server.Hubs
             await Groups.RemoveFromGroupAsync(Context.ConnectionId, "ComeToChat");
             await base.OnDisconnectedAsync(exception);
         }
+
+        public async Task AddUserConnectionId(string name)
+        {
+            _chatService.AddUserConnectionId(name, Context.ConnectionId);
+            var onlineUsers = _chatService.GetOnlineUsers();
+            await Clients.Groups("ComeToChat").SendAsync("OnlineUsers", onlineUsers);
+        }
     }
 }

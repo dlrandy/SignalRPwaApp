@@ -36,9 +36,13 @@ namespace SignalRPwaApp.Server
 
             app.UseAuthorization();
 
-            app.UseCors(cors => cors.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:17752", "https://localhost:17752"));
-            app.MapControllers();
+            app.UseCors(cors => cors.AllowAnyHeader().AllowAnyMethod().AllowCredentials()
+                .WithOrigins("http://localhost:17752", "https://localhost:17752",
+                    "https://localhost:32771", "http://localhost:32770")
+            //.AllowAnyOrigin()
+            );
             app.MapHub<ChatHub>("/hubs/chat");
+            app.MapControllers();
 
             app.MapFallbackToFile("/index.html");
 
