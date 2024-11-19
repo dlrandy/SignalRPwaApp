@@ -8,8 +8,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChatComponent } from './chat/chat.component';
+import { ChatInputComponent } from './chat-input/chat-input.component';
+import { MessagesComponent } from './messages/messages.component';
+import { PrivateChatComponent } from './private-chat/private-chat.component';
 
 
 @NgModule({
@@ -19,12 +22,16 @@ import { ChatComponent } from './chat/chat.component';
     HomeComponent,
     NavbarComponent,
     ChatComponent,
+    ChatInputComponent,
+    MessagesComponent,
+    PrivateChatComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
